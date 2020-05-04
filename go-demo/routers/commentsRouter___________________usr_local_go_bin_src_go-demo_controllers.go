@@ -7,6 +7,15 @@ import (
 
 func init() {
 
+    beego.GlobalControllerRouter["go-demo/controllers:BlogController"] = append(beego.GlobalControllerRouter["go-demo/controllers:BlogController"],
+        beego.ControllerComments{
+            Method: "GetOneBlog",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
     beego.GlobalControllerRouter["go-demo/controllers:ObjectController"] = append(beego.GlobalControllerRouter["go-demo/controllers:ObjectController"],
         beego.ControllerComments{
             Method: "Post",
