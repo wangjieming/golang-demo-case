@@ -24,7 +24,7 @@ func (u *BlogController) GetOneBlog()  {
 	//id := u.GetString(":id")
 	id,err := u.GetInt(":id")
 	if err == nil {
-		blog, err := models.GetBlog(id)
+		blog, err := models.GetBlogText(id)
 		if err != nil {
 			u.Data["json"] = err.Error()
 		} else {
